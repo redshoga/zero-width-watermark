@@ -1,3 +1,5 @@
+import { TextEncoder, TextDecoder } from "util";
+
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
@@ -45,21 +47,31 @@ const splitText = (text: string, maxCharCount: number): string[] => {
 const mixText = (text: string, zeroWidthChars: string): string => {
   const midText = text.substr(1, text.length - 2);
   const maxCharCount = Math.ceil(zeroWidthChars.length / (midText.length + 1));
-  const zeroWidthCharsArray = splitText(zeroWidthChars, maxCharCount);
+  const multipleOfEightMaxCharCount =
+    maxCharCount <= 8 ? 8 : Math.ceil(maxCharCount / 8) * 8;
+
+  const zeroWidthCharsArray = splitText(
+    zeroWidthChars,
+    multipleOfEightMaxCharCount
+  );
 
   let mixedMidText = "";
+  let pointerOfText = 0;
+  let pointerOfZeroWidthChars = 0;
   for (let idx = 0; idx < midText.length + zeroWidthCharsArray.length; idx++) {
-    if (idx % 2 === 0) {
-      mixedMidText += zeroWidthCharsArray[idx / 2];
+    if (idx % 2 === 0 && pointerOfZeroWidthChars < zeroWidthCharsArray.length) {
+      mixedMidText += zeroWidthCharsArray[pointerOfZeroWidthChars];
+      pointerOfZeroWidthChars += 1;
     } else {
-      mixedMidText += midText.charAt((idx + 1) / 2 - 1);
+      mixedMidText += midText.charAt(pointerOfText);
+      pointerOfText += 1;
     }
   }
 
   return `${text.charAt(0)}${mixedMidText}${text.charAt(text.length - 1)}`;
 };
 
-const embed = (
+export const embed = (
   text: string,
   data: string | Uint8Array,
   option?: {
@@ -73,7 +85,7 @@ const embed = (
   return mixText(plainText, zeroWidthChars);
 };
 
-const extract = (
+export const extract = (
   text: string,
   option?: {
     outputType?: "string" | "Uint8Array";
@@ -89,12 +101,3 @@ const extract = (
     ? byteArrayToText(byteArray)
     : byteArray;
 };
-
-(() => {
-  const embeddedText = embed("sample", "サンプルテキスト🐾");
-  const extraData = extract(embeddedText);
-  console.log({
-    embeddedText,
-    extraData,
-  });
-})();

@@ -2,6 +2,9 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "lib": ["es2015", "dom"]
-  }
+    "lib": ["es2015", "dom"],
+    "outDir": "dist",
+    "declaration": true
+  },
+  "include": ["src/**/*.ts"]
 }

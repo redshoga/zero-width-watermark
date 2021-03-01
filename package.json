@@ -1,14 +1,34 @@
 {
   "name": "zero-width-watermark",
-  "version": "0.1",
-  "main": "index.js",
+  "description": "Module for embedding information in text using zero-width characters",
+  "keywords": [
+    "watermark",
+    "text",
+    "zero-width"
+  ],
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
+  "repository": "github:redshoga/zero-width-watermark",
+  "homepage": "https://github.com/redshoga/zero-width-watermark",
+  "bugs": "https://github.com/redshoga/zero-width-watermark/issues",
+  "author": "redshoga <yui.ichioka.contact@gmail.com> (https://ichioka.tokyo)",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "ts-node src/index.ts"
+    "build": "tsc",
+    "prepare": "yarn build",
+    "test": "jest"
   },
   "dependencies": {
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.2"
+    "util": "^0.12.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.2",
+    "typescript": "^4.2.2"
+  }
 }
