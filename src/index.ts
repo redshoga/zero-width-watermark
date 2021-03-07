@@ -1,4 +1,4 @@
-import { TextEncoder, TextDecoder } from "util";
+import "fast-text-encoding";
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();

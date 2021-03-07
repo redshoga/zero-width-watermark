@@ -1,9 +1,8 @@
 "use strict";
 exports.__esModule = true;
 exports.extract = exports.embed = void 0;
-var util_1 = require("util");
-var encoder = new util_1.TextEncoder();
-var decoder = new util_1.TextDecoder();
+var encoder = new TextEncoder();
+var decoder = new TextDecoder();
 var highChar = String.fromCharCode(0x200b);
 var lowChar = String.fromCharCode(0x200c);
 // const highChar = "↑";

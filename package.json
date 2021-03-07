@@ -23,9 +23,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "util": "^0.12.3"
+    "fast-text-encoding": "^1.0.3"
   },
   "devDependencies": {
+    "@types/fast-text-encoding": "^1.0.1",
     "@types/jest": "^26.0.20",
     "jest": "^26.6.3",
     "ts-jest": "^26.5.2",
