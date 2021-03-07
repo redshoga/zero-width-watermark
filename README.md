@@ -2,6 +2,10 @@
 
 Module for embedding information in text using zero-width characters
 
+NPM: https://www.npmjs.com/package/zero-width-watermark
+
+Example Web App: https://zero-width-watermark-web.vercel.app/
+
 ## Usage
 
 ```ts
