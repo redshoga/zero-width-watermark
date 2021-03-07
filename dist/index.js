@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 exports.extract = exports.embed = void 0;
+require("fast-text-encoding");
 var encoder = new TextEncoder();
 var decoder = new TextDecoder();
 var highChar = String.fromCharCode(0x200b);

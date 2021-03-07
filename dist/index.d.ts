@@ -1,3 +1,4 @@
+import "fast-text-encoding";
 export declare const embed: (text: string, data: string | Uint8Array, option?: {
     repeat?: number | undefined;
 } | undefined) => string;
