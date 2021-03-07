@@ -6,6 +6,8 @@ NPM: https://www.npmjs.com/package/zero-width-watermark
 
 Example Web App: https://zero-width-watermark-web.vercel.app/
 
+Example Web App Source: https://github.com/redshoga/zero-width-watermark-web
+
 ## Usage
 
 ```ts
